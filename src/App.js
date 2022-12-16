@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { NavBar } from "./components";
+import CurrentRun from "./pages/CurrentRun";
+import { SideBar, Wrapper } from "./components";
+import Algorithm from "./pages/Algorithm";
+import Alarams from "./pages/Alarams";
+// import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      {/* <CurrentRun /> */}
+
+      <div className="flex">
+        <SideBar />
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<CurrentRun />} />
+            <Route path="/algorithm" element={<Algorithm />} />
+            <Route path="/alarams" element={<Alarams />} />
+          </Routes>
+        </Wrapper>
+      </div>
+      {/* <CurrentRun /> */}
+    </>
   );
 }
 
